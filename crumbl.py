@@ -30,6 +30,7 @@ class Crumbl:
 
             if "amp;" in cookie_name:
                 self.cookie_names[i] = self.cookie_names[i].replace('amp;', '')
+                self.cookie_image_names[i] = self.cookie_image_names[i].replace("amp;", '')
             elif "&#x27;" in cookie_name:
                 self.cookie_names[i] = self.cookie_names[i].replace("&#x27;", '')
                 self.cookie_image_names[i] = self.cookie_image_names[i].replace("&#x27;", '')
@@ -50,6 +51,16 @@ class Crumbl:
             self.cookie_names.remove("Mystery Cookie")
             num_cookies -= 1
             self.mystery_cookie = True
+
+        if "Frosted Strawberry" in self.cookie_names:
+            index = self.cookie_names.index("Frosted Strawberry")
+            self.cookie_names[index] = "Frosted Strawberry ft. Pop-Tart"
+            self.cookie_image_names[index] = "Frosted Strawberry Pop Tarts"
+
+        if "Peaches & Cream" in self.cookie_names:
+            index = self.cookie_names.index("Peaches & Cream")
+            self.cookie_names[index] = "Peaches & Cream"
+            self.cookie_image_names[index] = "Peaches Cream"
 
         if "Strawberry Milk ft." in self.cookie_names:
             index = self.cookie_names.index("Strawberry Milk ft.")
@@ -97,7 +108,7 @@ class Crumbl:
             index = self.cookie_names.index("Caramel Pumpkin Cake")
             self.cookie_image_names[index] = "Caramel Pumpkin"
 
-        print("names cleaned:", self.cookie_names)
+        print("names cleaned and replaced:", self.cookie_names)
 
         #  Get images
         self.cookie_image_urls = []
